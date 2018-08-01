@@ -16,6 +16,7 @@ const PlayerShuffledDeck = () => {
 const displayCard = () => {
   const displayCard = deck.pop()
   console.log(displayCard)
+  document.querySelector('.LetitDisplay').textContent= displayCard
 }
 
 let deck = []
@@ -25,14 +26,12 @@ const createPlayerDeck = () => {
   let typeOfCard = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
   for (let j = 0; j < suitOfCard.length; j++) {
     for (let i = 0; i < typeOfCard.length; i++) {
-      const _card = document.createElement('li')
-      _card.textContent = typeOfCard[i] + " of " + suitOfCard[j];
       deck.push(typeOfCard[i] + " of " + suitOfCard[j])
-      document.querySelector('.displayCard').appendChild(_card)
     }
   }
   PlayerShuffledDeck()
 }
+
 
 document.addEventListener('DOMContentLoaded', createPlayerDeck)
 document.querySelector('.LetitGo').addEventListener('click', displayCard)
